@@ -1,0 +1,24 @@
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    container_name: oss-copilot-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: copilot
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-devpassword}
+      POSTGRES_DB: oss_copilot
+    ports:
+      # host:container -- 5433 on the host to avoid clashing with DocuMind's Postgres on 5432
+      - "5433:5432"
+    volumes:
+      - copilot_pgdata:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      # Compose waits for this before reporting "healthy" -- stops you querying a DB that isn't up yet
+      test: ["CMD-SHELL", "pg_isready -U copilot -d oss_copilot"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  copilot_pgdata:

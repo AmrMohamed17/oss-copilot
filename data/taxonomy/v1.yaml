@@ -12,8 +12,8 @@
 # "area/tracing" and "feat-tracing" to maintenance (they are COMPONENT tags),
 # and "help wanted" to question (it is META). Explicit lists avoid this.
 
-version: 0.1
-canonical_types: [bug, feature, documentation, question, maintenance]
+version: 1.0
+canonical_types: [bug, feature, documentation, question]
 
 repos:
   langfuse/langfuse:
@@ -23,7 +23,6 @@ repos:
     feature: ["feature"]
     documentation: []
     question: []
-    maintenance: ["ci", "infra"]
 
   mlflow/mlflow:
     # "area/*" are component tags; only area/docs carries a type signal.
@@ -31,7 +30,6 @@ repos:
     feature: ["enhancement"]
     documentation: ["area/docs"]
     question: []
-    maintenance: ["area/build"]
 
   run-llama/llama_index:
     # Cleanest vocabulary of the four: three types, nothing else.
@@ -39,14 +37,12 @@ repos:
     feature: ["enhancement"]
     documentation: []
     question: ["question"]
-    maintenance: []
 
   vibrantlabsai/ragas:
     bug: ["bug"]
     feature: ["enhancement"]
     documentation: ["documentation"]
     question: ["question"]
-    maintenance: []
 
   confident-ai/deepeval:
     # Watched + contribution target only. Too few labels for ground truth.
@@ -54,7 +50,6 @@ repos:
     feature: ["enhancement"]
     documentation: ["documentation"]
     question: []
-    maintenance: []
 
 # Global meta labels -- features for Layer B fit-ranking, never classifier targets.
 meta_labels:

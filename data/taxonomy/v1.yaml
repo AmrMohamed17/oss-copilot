@@ -1,0 +1,67 @@
+# Canonical label taxonomy -- v0.1 SEED
+#
+# Built directly from probe_repo.py output on 2026-07-19: these are the label
+# vocabularies actually observed, not guesses. Refined into v1.0 in Step 0.4
+# once the full 365-day pull reveals rarer labels.
+#
+# TWO AXES, kept strictly separate:
+#   TYPE  -> what kind of issue it is. The classifier's answer key.
+#   META  -> workflow/priority/component. Features for fit-ranking. NEVER a type.
+#
+# Exact lowercase match. Substring matching was rejected: it mapped
+# "area/tracing" and "feat-tracing" to maintenance (they are COMPONENT tags),
+# and "help wanted" to question (it is META). Explicit lists avoid this.
+
+version: 0.1
+canonical_types: [bug, feature, documentation, question, maintenance]
+
+repos:
+  langfuse/langfuse:
+    # NOTE: langfuse's many "feat-*" labels (feat-otel, feat-scores, ...) are
+    # COMPONENT tags naming a product area, NOT feature requests. Excluded.
+    bug: ["bug", "🐞❔ unconfirmed bug"]
+    feature: ["feature"]
+    documentation: []
+    question: []
+    maintenance: ["ci", "infra"]
+
+  mlflow/mlflow:
+    # "area/*" are component tags; only area/docs carries a type signal.
+    bug: ["bug"]
+    feature: ["enhancement"]
+    documentation: ["area/docs"]
+    question: []
+    maintenance: ["area/build"]
+
+  run-llama/llama_index:
+    # Cleanest vocabulary of the four: three types, nothing else.
+    bug: ["bug"]
+    feature: ["enhancement"]
+    documentation: []
+    question: ["question"]
+    maintenance: []
+
+  vibrantlabsai/ragas:
+    bug: ["bug"]
+    feature: ["enhancement"]
+    documentation: ["documentation"]
+    question: ["question"]
+    maintenance: []
+
+  confident-ai/deepeval:
+    # Watched + contribution target only. Too few labels for ground truth.
+    bug: ["bug"]
+    feature: ["enhancement"]
+    documentation: ["documentation"]
+    question: []
+    maintenance: []
+
+# Global meta labels -- features for Layer B fit-ranking, never classifier targets.
+meta_labels:
+  good_first_issue: ["good first issue", "good-first-issue"]
+  help_wanted: ["help wanted", "help-wanted", "contributions wanted!"]
+  stale: ["stale"]
+  needs_info: ["needs author feedback", "awaiting response", "information-needed", "needs-info"]
+  triage: ["triage", "ready", "acknowledged", "shaping"]
+  answered: ["answered"]
+  has_pr: ["has-closing-pr", "awaiting code fix", "awaiting release"]

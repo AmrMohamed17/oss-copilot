@@ -1,0 +1,1823 @@
+
+------------------------------------------------------------
+pandas-dev/pandas#43245  GT=needs_info  PRED=actionable
+reason: The feature request clearly describes the desired behavior (preserving dtypes in iterrows) and the API-breaking implications, so a maintainer can start working on it.
+TITLE: iterrows does not preserve dtypes
+#### Is your feature request related to a problem?
+
+I wish I could use pandas in a way that does not cause bug-hunting for hours to look for a specific spot where nonsensical behavior occurs.
+
+#### Describe the solution you'd like
+
+The iterrow function (https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iterrows.html) and a few other ways of access do not preserve data types, this
+
+------------------------------------------------------------
+pandas-dev/pandas#51821  GT=needs_info  PRED=actionable
+reason: The bug is clearly described with a reproducible example, expected behavior, and environment details, so a maintainer can start investigating why mode='a' is ignored for GCS.
+TITLE: BUG: to_csv to Google Cloud Storage ignores mode='a'
+### Pandas version checks
+
+- [X] I have checked that this issue has not already been reported.
+
+- [X] I have confirmed this bug exists on the [latest version](https://pandas.pydata.org/docs/whatsnew/index.html) of pandas.
+
+- [X] I have confirmed this bug exists on the [main branch](https://pandas.pydata.org/docs/dev/getting_started/install.html#installing-the-development-version-of-pandas) of pand
+
+------------------------------------------------------------
+pandas-dev/pandas#38752  GT=needs_info  PRED=actionable
+reason: The bug report includes a reproducible code sample, expected output, and environment details, so a maintainer can start investigating the precision issue in groupby rolling sums.
+TITLE: BUG:Wrong sum in groupby rolling due to precision issues
+- [X] I have checked that this issue has not already been reported.
+
+- [X] I have confirmed this bug exists on the latest version of pandas.
+
+- [ ] (optional) I have confirmed this bug exists on the master branch of pandas.
+
+---
+
+#### Code Sample, a copy-pastable example
+
+```python
+import numpy as np
+import math
+import pandas as pd
+
+id1 = pd.date_range('2019-10-01', '2020-01-08', fr
+
+------------------------------------------------------------
+pandas-dev/pandas#28896  GT=needs_info  PRED=actionable
+reason: The bug report includes a reproducible code sample, expected vs actual behavior, and environment details, so a maintainer can start investigating.
+TITLE: Failing multiplication if both dataframes contain the (seemingly) identical categorical column
+#### Code Sample, a copy-pastable example if possible
+
+```python
+import pandas as pd
+
+pop = pd.read_pickle('pop.pcl')
+a = pd.read_pickle('rates_all.pcl')
+b = pd.read_pickle('rates_main.pcl')
+
+print('####### Dataframes #######')
+print(pop)
+print(a)
+print(b)
+
+print('\n####### Indices #######')
+print(b.index.get_level_values(1))
+print(a.index.get_level_values(1))
+print(pop.index.get_
+
+------------------------------------------------------------
+pandas-dev/pandas#39041  GT=needs_info  PRED=actionable
+reason: The bug report includes environment details, a minimal reproduction, and a clear crash symptom, so a maintainer can start investigating.
+TITLE: BUG: pandas v1.2 read_csv crashes when reading a large CSV
+#### Environment
+
+OS: Windows 10
+Python version: 3.7.8 (64 bit)
+
+#### Problem description
+
+Pandas 1.2 fails to read a large CSV (1.6GB), crashing the python process with exit code 0xC0000005. This issue is IDE agnostic, as it happens when running python from the console as well (no IDE).
+- The CSV is quite simple, 7M rows x 100 columns with all integer values (1 or 0).
+- Adding/changing/r
+
+------------------------------------------------------------
+pandas-dev/pandas#46890  GT=needs_info  PRED=actionable
+reason: The bug report includes a reproducible example, traceback, and environment details, so a maintainer can start investigating the issue.
+TITLE: BUG: Error while debugging
+### Pandas version checks
+
+- [X] I have checked that this issue has not already been reported.
+
+- [X] I have confirmed this bug exists on the [latest version](https://pandas.pydata.org/docs/whatsnew/index.html) of pandas.
+
+- [X] I have confirmed this bug exists on the main branch of pandas.
+
+
+### Reproducible Example
+
+```python
+import pandas as pd
+import numpy as np
+
+df = pd.DataFra
+
+------------------------------------------------------------
+pandas-dev/pandas#42868  GT=needs_info  PRED=actionable
+reason: The documentation issue clearly identifies the problem (missing package explanation for \thsolid) and requests a specific fix (complete preamble and MWE), which a maintainer can act on directly.
+TITLE: DOC: to_latex documentation for Styler
+#### Location of the documentation
+
+https://pandas.pydata.org/docs/reference/api/pandas.io.formats.style.Styler.to_latex.html
+
+#### Documentation problem
+
+I think the set of packages needed to get this to work should be more clearly defined, given how different peoples' Latex setups are. For instance, the current package list in the documentation doesn't seem to provide any explaination for 
+
+------------------------------------------------------------
+pandas-dev/pandas#32745  GT=needs_info  PRED=actionable
+reason: The issue clearly describes the error, provides code, and identifies the incompatibility between pandas and hdfs AsyncWriter, so a maintainer can investigate and fix it.
+TITLE: Unable to write dataframe to csv via hdfs_client using pandas 1.0.1
+I am trying to save a data frame to csv using the method df.to_csv(writer) by passing hdfs_client's writer but it is throwing an error 
+"ValueError: Invalid file path or buffer object type: <class 'hdfs.util.AsyncWriter'>"
+Code:
+```
+with hdfs_client.write('/some/existing/path/in/datalake/dummy.csv', encoding='utf-8') as writer:
+    df.to_csv(writer,encoding='utf-8') (edited) 
+```
+The issue 
+
+------------------------------------------------------------
+pandas-dev/pandas#47401  GT=needs_info  PRED=actionable
+reason: The bug report includes a reproducible example, the exact error message, and environment details, so a maintainer can start investigating.
+TITLE: BUG: TypeError: expected <class 'float'> when reading xlsx file
+### Pandas version checks
+
+- [X] I have checked that this issue has not already been reported.
+
+- [X] I have confirmed this bug exists on the [latest version](https://pandas.pydata.org/docs/whatsnew/index.html) of pandas.
+
+- [x] I have confirmed this bug exists on the main branch of pandas.
+
+
+### Reproducible Example
+
+```python
+import pandas as pd
+# this is the sample file: https://file.io/Z9PxHl
+
+------------------------------------------------------------
+pandas-dev/pandas#48967  GT=needs_info  PRED=actionable
+reason: The issue reports a specific performance problem with pandas import on Kubernetes, includes a reproducible example, version details, and prior comparison, so a maintainer can investigate the import slowdown.
+TITLE: PERF: Slow pandas import on Kubernetes
+### Pandas version checks
+
+- [X] I have checked that this issue has not already been reported.
+
+- [X] I have confirmed this issue exists on the [latest version](https://pandas.pydata.org/docs/whatsnew/index.html) of pandas.
+
+- [X] I have confirmed this issue exists on the main branch of pandas.
+
+
+### Reproducible Example
+
+The import of Pandas 1.5 seems very slow - between 2 and 5 seconds on Opensh
+
+------------------------------------------------------------
+pandas-dev/pandas#60351  GT=needs_info  PRED=actionable
+reason: The feature request clearly describes desired behavior for df.join() to retain attrs, with a natural default and alternative, so a maintainer can start implementing.
+TITLE: ENH: Copy attrs on join (possibly depending on left, right, etc.)
+### Feature Type
+
+- [ ] Adding new functionality to pandas
+
+- [X] Changing existing functionality in pandas
+
+- [ ] Removing existing functionality in pandas
+
+
+### Problem Description
+
+df.join() does not retain the attrs of the dataset. Given that the attrs manual states that "many operations that create new datasets will retain attrs", this seems like an omission.
+
+### Feature Description
+
+Join is
+
+------------------------------------------------------------
+pandas-dev/pandas#51192  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear reproducible example, expected behavior, and environment details, so a maintainer can start investigating why dtype is not accepted by read_excel.
+TITLE: BUG: TypeError: read_excel() got an unexpected keyword argument 'dtype'
+### Pandas version checks
+
+- [X] I have checked that this issue has not already been reported.
+
+- [X] I have confirmed this bug exists on the [latest version](https://pandas.pydata.org/docs/whatsnew/index.html) of pandas.
+
+- [X] I have confirmed this bug exists on the [main branch](https://pandas.pydata.org/docs/dev/getting_started/install.html#installing-the-development-version-of-pandas) of pand
+
+------------------------------------------------------------
+pandas-dev/pandas#56463  GT=needs_info  PRED=actionable
+reason: The bug report includes a minimal reproducible example, expected behavior, and version details, so a maintainer can start investigating the regression.
+TITLE: BUG: Unsupported cast from string to time64 with pandas 2.1.4
+### Pandas version checks
+
+- [X] I have checked that this issue has not already been reported.
+
+- [X] I have confirmed this bug exists on the [latest version](https://pandas.pydata.org/docs/whatsnew/index.html) of pandas.
+
+- [X] I have confirmed this bug exists on the [main branch](https://pandas.pydata.org/docs/dev/getting_started/install.html#installing-the-development-version-of-pandas) o
+
+------------------------------------------------------------
+pandas-dev/pandas#62468  GT=needs_info  PRED=actionable
+reason: The bug report includes a reproducible example, environment details, and a clear description of the non-deterministic failure, so a maintainer can start investigating.
+TITLE: BUG: indexing large df silently fails non-deterministically
+### Pandas version checks
+
+- [x] I have checked that this issue has not already been reported.
+
+- [x] I have confirmed this bug exists on the [latest version](https://pandas.pydata.org/docs/whatsnew/index.html) of pandas.
+
+- [x] I have confirmed this bug exists on the [main branch](https://pandas.pydata.org/docs/dev/getting_started/install.html#installing-the-development-version-of-pandas) of pand
+
+------------------------------------------------------------
+pandas-dev/pandas#32623  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear error message, reproduction steps, and environment details, so a maintainer can start investigating.
+TITLE: Pandas 1.0.1 unable to read excels it created itself
+After creating lots of XLSX files with pandas.Excelwriter(), the same pandas is unable to read some of them:
+
+`writer=pd.ExcelWriter(outfile)`
+
+Then in a different script, when processing the same files with `pd.read_excel(outfile)`
+
+on some (but not all) files I get error:
+
+`xlrd.biffh.XLRDError: ZIP file contents not a known type of workbook
+`
+
+#### Output of ``pd.show_versions()``
+
+
+------------------------------------------------------------
+pandas-dev/pandas#47556  GT=needs_info  PRED=actionable
+reason: The bug is clearly described with a minimal reproducible example and expected behavior, so a maintainer can start investigating.
+TITLE: BUG: df.columns.name = 0 is not shown
+### Pandas version checks
+
+- [X] I have checked that this issue has not already been reported.
+
+- [X] I have confirmed this bug exists on the [latest version](https://pandas.pydata.org/docs/whatsnew/index.html) of pandas.
+
+- [X] I have confirmed this bug exists on the main branch of pandas.
+
+
+### Reproducible Example
+
+```python
+import pandas as pd
+
+df = pd.DataFrame({'test': [1]}, index=[0])
+
+
+
+------------------------------------------------------------
+pandas-dev/pandas#35422  GT=needs_info  PRED=actionable
+reason: The bug is clearly described with a minimal reproduction example and the exact error message, so a maintainer can start investigating.
+TITLE: Using loc[] or at[] to add rows doesn't work with an IntervalIndex doesn't work
+It seems that a data frame with an `IntervalIndex` won't let you use `loc[]` or `at[]` to add rows.
+
+I would expect the following to work:
+```
+df = pd.DataFrame(index=pd.IntervalIndex(closed='left', dtype='interval[int64]',
+                                         data=[pd.Interval(0, 1, closed='left')]),
+                  data={'a': [42]})
+df.at[pd.Interval(2, 3, closed='left'), 'a'] = 43
+
+------------------------------------------------------------
+pandas-dev/pandas#36448  GT=needs_info  PRED=actionable
+reason: The issue clearly identifies a broken link in a warning message and provides the correct replacement URL, so a maintainer can directly fix it.
+TITLE: DOC: broken link in warning message
+I couldn't figure out the spot in the code, sorry about that, but the link in this message is broken:
+
+    A value is trying to be set on a copy of a slice from a DataFrame.
+    Try using .loc[row_indexer,col_indexer] = value instead
+    
+    See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+
+It should be: https://panda
+
+------------------------------------------------------------
+pandas-dev/pandas#54076  GT=needs_info  PRED=actionable
+reason: The feature request clearly describes desired behavior and parameters for adding missing/infinite value counts to .describe, which a maintainer can implement.
+TITLE: ENH: add missing/infinite values counts in .describe 
+### Feature Type
+
+- [ ] Adding new functionality to pandas
+
+- [X] Changing existing functionality in pandas
+
+- [ ] Removing existing functionality in pandas
+
+
+### Problem Description
+
+As scikit-learn often fail with missing or infinite values, I'd like a default way to count missing / infinite values. Currently we need to use describe and some .isna().sum() separately. It would be  nice if the des
+
+------------------------------------------------------------
+angular/angular#66072  GT=actionable  PRED=needs_info
+reason: The issue lacks reproduction steps, environment details, and specific error information, making it impossible for a maintainer to start investigating.
+TITLE: Angular 21 slightly slower (from krausest/js-framework-benchmark)
+### Which @angular/* package(s) are the source of the bug?
+
+core
+
+### Is this a regression?
+
+Yes
+
+### Description
+
+From https://github.com/krausest/js-framework-benchmark/pull/1948#issuecomment-3653760649
+
+Left Angular 21 / Right Angular 20
+<img width="2348" height="1504" alt="Image" src="https://github.com/user-attachments/assets/eada4af9-246c-4eeb-a1f7-34ce770300a9" />
+
+### Please provide a link
+
+------------------------------------------------------------
+angular/angular#65782  GT=actionable  PRED=needs_info
+reason: The report lacks the actual Angular/Okta versions and a minimal reproduction, making it hard to confirm the regression or start debugging.
+TITLE: @okta/okta-angular no more working with angular 20 due to angular strictly  requires a real Observable inside the interceptors
+### Which @angular/* package(s) are the source of the bug?
+
+common
+
+### Is this a regression?
+
+Yes
+
+### Description
+
+We are trying to update our application to angular 20 in which are using `@okta/okta-angular ` for authentication.
+after updating we are getting following error 
+
+`TypeError: You provided an invalid object where a stream was expected.`
+
+it is from authentication interceptor which ha
+
+------------------------------------------------------------
+kubernetes/kubernetes#139804  GT=actionable  PRED=needs_info
+reason: The failure log only shows the command invocation and exit status, not the actual test failure or error details, so a maintainer would need more information to start debugging.
+TITLE: [Flaking Test] ci-kubernetes-node-e2e-containerd.Node Tests
+### Which jobs are flaking?
+
+[ci-kubernetes-node-e2e-containerd](https://testgrid.k8s.io/sig-release-master-blocking#ci-node-e2e&exclude-non-failed-tests=)
+ci-kubernetes-node-e2e-containerd-alpha-features
+
+
+### Which tests are flaking?
+
+Node Tests
+
+
+### Since when has it been flaking?
+
+I checked Dec 2024 and I see this flake. Back then it was very rarely happening. Since Dec 2025 this has been hap
+
+------------------------------------------------------------
+kubernetes/kubernetes#136055  GT=actionable  PRED=needs_info
+reason: The issue is a promotional announcement with no specific problem, feature request, or actionable task for a maintainer to work on.
+TITLE: AI Enhancement Proposal - Issue #24009
+🎉 Exciting News: Service Upgrade Available!
+
+We're thrilled to announce a major upgrade to our product and services. This update includes:
+
+✨ Key Features:
+- Enhanced Performance: 50% faster processing and improved reliability
+- Advanced AI Integration: Smarter algorithms for better results
+- Improved User Interface: More intuitive and user-friendly design
+- Expanded Capabilities: New tools and fe
+
+------------------------------------------------------------
+kubernetes/kubernetes#139843  GT=actionable  PRED=needs_info
+reason: The issue is just a repeated statement with no context, error, or reproduction details, making it impossible to act on.
+TITLE: 1.32 will update to 1.32.14
+### What happened?
+
+1.32 will update to 1.32.14
+
+### What did you expect to happen?
+
+1.32 will update to 1.32.14
+
+### How can we reproduce it (as minimally and precisely as possible)?
+
+1.32 will update to 1.32.14
+
+### Anything else we need to know?
+
+_No response_
+
+### Kubernetes version
+
+<details>
+
+```console
+$ kubectl version
+# paste output here
+```
+
+</details>
+
+
+### Cloud provider
+
+<details>
+
+</
+
+------------------------------------------------------------
+kubernetes/kubernetes#138776  GT=actionable  PRED=needs_info
+reason: The issue body only contains an API response snippet with no description of a problem, feature, or question.
+TITLE: Kubo
+Accept: application/json;v=v2;g=apidiscovery.k8s.io;as=APIGroupDiscoveryList.
+
+{
+  "kind": "APIGroupList",
+  "apiVersion": "v1",
+  "groups": [
+    {
+      "name": "apiregistration.k8s.io",
+      "versions": [
+        {
+          "groupVersion": "apiregistration.k8s.io/v1",
+          "version": "v1"
+        }
+      ],
+      "preferredVersion": {
+        "groupVersion": "apiregistration.k8s.io/v1",
+
+
+------------------------------------------------------------
+kubernetes/kubernetes#137690  GT=actionable  PRED=needs_info
+reason: The failure log only shows a generic exit code 1 without the actual command output or error details, so a maintainer would need to ask for more information to diagnose.
+TITLE: [Failing Test] [sig-node] ImageVolume should succeed with pod and pull policy of Always [MinimumKubeletVersion:1.35] [Conformance]
+### Which jobs are failing?
+
+[sig-release-master-informing#capz-windows-master](https://testgrid.k8s.io/sig-release-master-informing#capz-windows-master)
+
+### Which tests are failing?
+
+Kubernetes e2e suite.[It] [sig-node] ImageVolume should succeed with pod and pull policy of Always [MinimumKubeletVersion:1.35] [Conformance]  [prow](https://prow.k8s.io/view/gs/kubernetes-ci-logs/logs/ci-kubernetes
+
+------------------------------------------------------------
+kubernetes/kubernetes#139576  GT=actionable  PRED=needs_info
+reason: The issue is too vague—no specific network policy, environment, or reproduction details are provided to act on.
+TITLE: Security: Network policies enforcement incomplete, traffic not properly restricted
+## Problem Statement
+Network policies weak:
+- Traffic not restricted
+- Policies bypassed
+- Security risk
+
+**Business Impact:** Security breach
+**Technical Impact:** Policy enforcement
+
+## Root Cause Analysis
+Incomplete enforcement. Gaps in coverage.
+
+## Solution Overview
+1. Enforcement: enforce all
+2. Validation: validate policies
+3. Testing: test security
+4. Logging: log violations
+5. Audit: audi
+
+------------------------------------------------------------
+kubernetes/kubernetes#135745  GT=actionable  PRED=needs_info
+reason: The issue is incomplete and vague, lacking a clear problem description, reproduction steps, or expected behavior.
+TITLE: c180d6762d7ac5059d9b50457cafb0d7f4cf74a9
+### What happened?
+
+# @ncdc https://github.com/copilot/share/804a0006-43a4-8827-a111-f44544256165_i9789_
+
+### What did you expect to happen?
+
+---
+pcx_content_type: get-started
+title: Getting started
+sidebar:
+  order: 2
+---
+
+import { DashButton } from "~/components";
+
+;
+
+### How can we reproduce it (as minimally and precisely as possible)?
+
+Please
+
+### Anything else we need to know?
+
+_No response_
+
+
+------------------------------------------------------------
+kubernetes/kubernetes#139892  GT=actionable  PRED=needs_info
+reason: This is a project showcase with no specific issue or request for the maintainers to act on.
+TITLE: Project Showcase: AI financial chart analysis tool
+Hi kubernetes community,
+
+I built an open-source AI tool that analyzes Gold (XAUUSD) and Bitcoin (BTCUSD) across 5 timeframes using YOLOv8.
+
+Features:
+- YOLO object detection on candlestick charts
+- Multi-timeframe analysis (M5/M15/M30/H1/H4)
+- Auto-publishing to Telegram channels
+
+GitHub: https://github.com/xiaohoumin3-alt/ChartScanAI
+Free trial: https://t.me/ChartScanAI
+
+------------------------------------------------------------
+kubernetes/kubernetes#139401  GT=actionable  PRED=needs_info
+reason: The report is a generic scan summary with no specific issue or actionable problem for a maintainer to address.
+TITLE: AI安全审计报告：Kubernetes代码质量扫描
+## 🕳️ AI 代码审计报告
+
+对 Kubernetes (kubernetes/kubernetes) 进行了自动安全扫描。
+
+### 扫描概况
+
+- 源文件: 17,182 个 Go 文件
+- 发现: 未发现常见安全漏洞模式
+
+### 结论
+
+Kubernetes 作为云原生基础设施的标杆项目，代码质量和安全实践非常成熟。本次 AI 自动化审计未发现常见的安全漏洞模式（SQL注入、硬编码密钥、命令注入等），体现了其完善的代码审查和安全实践体系。
+
+---
+
+⚡ 扫描工具: ONESEC AI 审计流水线 v3.0
+
+> 如需对其他项目做安全审计，可联系: l15250432278@163.com
+
+------------------------------------------------------------
+kubernetes/kubernetes#137239  GT=actionable  PRED=needs_info
+reason: The report lacks the specific error logs or configuration differences between the two OS environments, making it unclear what exact failure occurs beyond the ClusterInformation error.
+TITLE: Why Does Calico 3.26+ Fail on One OS but Succeed on Another in Kubernetes 1.28?
+The operating system information is:  
+Linux version 4.19.0-372.26.6.el8.bclinux.x86_64 (mockbuild@feaf839778b8460abf99bb2661f18dc8) (gcc version 8.5.0 20210514 (Anolis 8.5.0-10.0.1) (GCC)) #1 SMP Thu Jun 27 09:31:58 CST 2024  
+Deploying k8s 1.28.15 and calico 3.26.x or higher versions all failed. Finally, downgrading the calico version to 3.25.2 succeeded.  
+The method for deploying calico in k8s
+
+------------------------------------------------------------
+kubernetes/kubernetes#138251  GT=actionable  PRED=needs_info
+reason: The report lacks the specific error message or logs from the UnexpectedAdmissionError, and the reproduction steps are too high-level without details on the device plugin setup.
+TITLE: Kubelet restart triggers UnexpectedAdmissionError for pods using device plugins in both initContainers and containers
+### What happened?
+
+Restarting the kubelet causes pods to fail with an UnexpectedAdmissionError when both initContainers and containers use device plugins.
+
+### What did you expect to happen?
+
+Restart kubelet should not cause running pods to restart
+
+### How can we reproduce it (as minimally and precisely as possible)?
+
+1. Create a pod whose containers and initContainers both use device plugins.
+2
+
+------------------------------------------------------------
+pandas-dev/pandas#63477  GT=actionable  PRED=needs_info
+reason: The error trace is truncated and lacks the actual error message or the specific document being built, so a maintainer would need more details to diagnose.
+TITLE: QST: Error while building document
+### Research
+
+- [x] I have searched the [[pandas] tag](https://stackoverflow.com/questions/tagged/pandas) on StackOverflow for similar questions.
+
+- [x] I have asked my usage related question on [StackOverflow](https://stackoverflow.com).
+
+
+### Link to question on StackOverflow
+
+https://stackoverflow.com/questions/30807270/build-pandas-documentation-from-source-using-installed-pandas-rather-than-a
+
+------------------------------------------------------------
+pandas-dev/pandas#61829  GT=actionable  PRED=needs_info
+reason: The feature request is vague about the desired API and behavior, lacking concrete examples of how the signal-like mechanism should work with pandas DataFrames.
+TITLE: ENH: Add a function like PYQT signal
+### Feature Type
+
+- [x] Adding new functionality to pandas
+
+- [ ] Changing existing functionality in pandas
+
+- [ ] Removing existing functionality in pandas
+
+
+### Problem Description
+
+I hope this function can use to keep two or more dataframe same like PyQt View and Model (if I revise model view will change )
+
+### Feature Description
+
+from typing import Callable
+
+
+class Index():
+    def __init__(s
+
+------------------------------------------------------------
+pandas-dev/pandas#63245  GT=actionable  PRED=needs_info
+reason: The request is vague and repetitive, lacking a clear description of desired behavior or context for adding free-threaded support on Windows.
+TITLE: Windows Free Thread
+### Feature Type
+
+- [x] Adding new functionality to pandas
+
+- [ ] Changing existing functionality in pandas
+
+- [ ] Removing existing functionality in pandas
+
+
+### Problem Description
+
+Why don't add "Free Thread" For Windows in last version?
+
+### Feature Description
+
+Why don't add "Free Thread" For Windows in last version?
+
+### Alternative Solutions
+
+Why don't add "Free Thread" For Windows in last 
+
+------------------------------------------------------------
+angular/angular#57334  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear description, code snippet, expected vs actual behavior, and environment details, so a maintainer can start investigating without needing more information.
+TITLE: Problem with SSR and condition
+### Which @angular/* package(s) are the source of the bug?
+
+Don't known / other
+
+### Is this a regression?
+
+I don't know
+
+### Description
+
+I have the following component template for a sign-in page
+
+- if the user is signed in, we show some user info
+- else we show the login form
+- we also have some content inside the `@else` block for diagnostic purposes
+  - "user with div" -  text 
+
+------------------------------------------------------------
+angular/angular#49187  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear description, a minimal reproduction link, and the specific error, so a maintainer can start investigating.
+TITLE: Forms: Unable to set FormGroup to null
+### Which @angular/* package(s) are the source of the bug?
+
+forms
+
+### Is this a regression?
+
+No
+
+### Description
+
+I have a form to edit a post. The post can have a poll which can be a poll or null.
+
+```
+interface CreatePost {
+    text: string;
+    poll: CreatePostPoll | null;
+}
+
+interface CreatePostPoll {
+    choices: string[];
+    duration: number;
+}
+```
+
+If the user want
+
+------------------------------------------------------------
+angular/angular#62333  GT=needs_info  PRED=actionable
+reason: The bug report provides a detailed root cause analysis, reproduction steps, configuration, and environment details, allowing a maintainer to start investigating and fixing the issue.
+TITLE: Service Worker incorrectly handles external Range Requests, causing an infinite loop and bypassing dataGroups configuration
+### Which @angular/* package(s) are the source of the bug?
+
+service-worker
+
+### Is this a regression?
+
+No
+
+### Description
+
+Problem Description
+
+The Angular Service Worker in v20.0.5 incorrectly handles fetch events for external URLs that contain an HTTP Range header. This leads to an infinite loop within the service worker, which the browser eventually terminates by serving the index.html file as
+
+------------------------------------------------------------
+angular/angular#61026  GT=needs_info  PRED=actionable
+reason: The bug report clearly describes the issue, expected behavior, and steps to reproduce, even though version details are partially redacted.
+TITLE: ng update from Angular 17 to 18 does not add standalone: false automatically to NgModule-based Components, Directives, Pipes
+### Which @angular/* package(s) are the source of the bug?
+
+upgrade
+
+### Is this a regression?
+
+Yes
+
+### Description
+
+Description:
+
+While upgrading an Angular project from v17 to v18 using the ng update command, I observed the following:
+
+HttpClientModule migration:
+The ng update tool successfully migrated the HttpClientModule to the new provider function-based configuration, i.e., replacing the o
+
+------------------------------------------------------------
+angular/angular#55032  GT=needs_info  PRED=actionable
+reason: The feature request clearly describes the desired behavior, provides a concrete API proposal with example usage, and identifies the problem with required inputs.
+TITLE: Provide `input` property to `options` of `createComponent`
+### Which @angular/* package(s) are relevant/related to the feature request?
+
+core
+
+### Description
+
+Modals are usually created using `createComponent`.
+If we open a component that has signal `input`s, we can assign a value using `setInput` on the `ComponentRef`.
+
+But if we use `input.required` and access the signal directly in the component, the error "NG0950: Input is required but no value is
+
+------------------------------------------------------------
+angular/angular#47311  GT=needs_info  PRED=actionable
+reason: The issue includes a clear error message, environment details, and a minimal reproduction link, so a maintainer can start investigating.
+TITLE: Angular Testing Error in v14 Compiler error Property 'configureTestingModule' does not exist on type 'TestBedStatic'.
+### Which @angular/* package(s) are the source of the bug?
+
+core
+
+### Is this a regression?
+
+No
+
+### Description
+
+I've recently started my angular project with angular 14.
+Node version 16.17.0
+
+It seems like the compiler isn't recognizing the getter inside @angular\core\testing\index.d.ts
+giving the compiler error "Property or signature expected."
+
+
+### Please provide a link to a 
+
+------------------------------------------------------------
+angular/angular#36817  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear reproduction case, the exact error, environment details, and a workaround, so a maintainer can start investigating.
+TITLE: [ngClass] object notation causes Object Expected error in IE11 breaking the app.
+# 🐞 bug report
+
+> Note: This bug report is specifically for IE11.
+
+
+### Affected Package
+I believe it would be @angular/core? It would be whatever handles transpiling for ES5. I am using 8.2.14 at the moment.
+
+
+### Is this a regression?
+I don't know as this is the first version I have used.
+
+### Description
+If I use the object notation on an element using [ngClass] like so:
+
+`<ul [n
+
+------------------------------------------------------------
+angular/angular#39644  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear error, reproduction steps with specific package versions, and environment details, so a maintainer can start investigating.
+TITLE: Pipe translate not working building with ivy
+# 🐞 bug report
+
+### Affected Package
+The issue is caused by package @angular version 9
+
+
+### Is this a regression?
+
+Yes, the previous version in which this bug was not present was: @angular 8
+
+
+### Description
+
+I wrapped the ngx library inside my own library and with angular 8 all was working fine. After the update with angular 9 i get the following error: 
+
+No pipe found with name 
+
+------------------------------------------------------------
+angular/angular#62259  GT=needs_info  PRED=actionable
+reason: The bug report clearly describes the issue, expected vs actual behavior, and environment, making it actionable for a maintainer to investigate.
+TITLE: HttpClient does not expose Allow header when response is 204 No Content, but works with 200 OK (Angular 18.1.1)
+### Which @angular/* package(s) are the source of the bug?
+
+common
+
+### Is this a regression?
+
+No
+
+### Description
+
+In Angular 18.1.1, using HttpClient.options(..., { observe: 'response' }), the Allow header from the response is not available when the response has status 204 No Content, even though:
+
+- The server includes Access-Control-Expose-Headers: Allow
+- The Allow header is present and visib
+
+------------------------------------------------------------
+angular/angular#43988  GT=needs_info  PRED=actionable
+reason: The issue includes a minimal reproduction link, the exact error message, and environment details, so a maintainer can start investigating.
+TITLE: DI doesn't work Angular 13
+### Which @angular/* package(s) are the source of the bug?
+
+common, core
+
+### Is this a regression?
+
+No
+
+### Description
+
+I have a very weird situation. When followed exactly to the official Angular documentation I got error in the application. The app crashes and Dependency Injection doesn't work as it should [https://angular.io/tutorial/toh-pt4](https://angular.io/tutorial/toh-pt4)
+
+### Please p
+
+------------------------------------------------------------
+angular/angular#67706  GT=needs_info  PRED=actionable
+reason: The bug report clearly describes the issue, expected vs actual behavior, and includes environment details, making it reproducible for a maintainer.
+TITLE: Angular compiler strips | null from signal input types in partial compilation .d.ts output
+### Which @angular/* package(s) are the source of the bug?
+
+compiler
+
+### Is this a regression?
+
+Yes
+
+### Description
+
+When using input.required<T | null>() or input<T | null>() in a library built with ng-packagr (partial compilation mode), the Angular compiler strips | null from the generated .d.ts files.
+
+Source:
+ ```ts
+a = input.required<T | null>();
+b = input<T | null>();
+```
+
+Expected .d.ts (
+
+------------------------------------------------------------
+angular/angular#60757  GT=needs_info  PRED=actionable
+reason: The bug report includes a minimal reproduction link, environment details, and a clear description of the issue, so a maintainer can start investigating.
+TITLE: Karma unit test createComponent is not rendered in the browser
+### Which @angular/* package(s) are the source of the bug?
+
+Don't known / other
+
+### Is this a regression?
+
+No
+
+### Description
+
+I create a component dynamically based on a given input via `createComponent` function
+
+```ts
+constructor() {
+    afterNextRender({
+      write: () => {
+        if (!this.externalUse) return;
+
+        // Create scroll content wrapper
+        this.createContentWrapper(thi
+
+------------------------------------------------------------
+angular/angular#66743  GT=needs_info  PRED=actionable
+reason: The bug report provides a clear description, environment details, error messages, and a minimal reproduction setup, so a maintainer can start investigating.
+TITLE: CommonModule/RouterModule Directives Not Recognized in NgModule Libraries (Angular v21)
+### Which @angular/* package(s) are the source of the bug?
+
+common, compiler-cli, compiler, router
+
+### Is this a regression?
+
+Yes
+
+### Description
+
+When building an Angular library (using `ng-packagr`) with Angular v21, CommonModule and RouterModule directives (`ngClass`, `ngStyle`, `routerLink`, etc.) are not recognized during compilation, even though these modules are properly imported and expo
+
+------------------------------------------------------------
+angular/angular#38628  GT=needs_info  PRED=actionable
+reason: The issue provides a clear reproduction scenario, code examples, and version details, so a maintainer can investigate the bug directly.
+TITLE: @ViewChild with { static: false } and type selector breaking unit tests
+This goes along with #31386, but since that thread as been locked, I started a new one.
+
+I'm having the same issue described in that thread with the difference being that I'm not using a template name for the `@ViewChild` selector, I'm using the component type.
+
+``` javascript
+// Instead of this:
+@ViewChild('templateName', { static: false }) childComponent: MyChildComponent;
+
+// I have:
+@
+
+------------------------------------------------------------
+ray-project/ray#23971  GT=needs_info  PRED=actionable
+reason: The issue provides a clear reproduction script, environment details, and a specific symptom (GPU OOM after scheduler terminations), so a maintainer can start investigating.
+TITLE: [Tune] Trial Scheduler: Termination Causes GPU to Not Release Memory
+### What happened + What you expected to happen
+
+While running Ray Tune with PyTorch Lightning, CUDA throws a GPU out-of-memory error after several trial scheduler terminations. Removal of the scheduler alleviates the issue. It has been reproduce with both ASHA and Median Stopping Rule.
+Using HyperOpt for tuning.
+
+Expectation: Trial scheduler to safely stop trial and release GPU memory. 
+
+#
+
+------------------------------------------------------------
+ray-project/ray#23228  GT=needs_info  PRED=actionable
+reason: The feature request clearly describes the desired behavior: derive a unique MLflow run name from search config, with a concrete use case and screenshot.
+TITLE: [Feature] [tune] create a mlflow run name from config params
+### Search before asking
+
+- [X] I had searched in the [issues](https://github.com/ray-project/ray/issues) and found no similar feature requirement.
+
+
+### Description
+
+Create a unique run name (derived from search config) for mlflow runs
+
+### Use case
+
+When analyzing MLflow runs auto-generated by MLflowLogger it would be useful have a unique name for each run.
+For instance to analyze a 
+
+------------------------------------------------------------
+ray-project/ray#33000  GT=needs_info  PRED=actionable
+reason: The issue includes a clear reproduction script, error logs, and resource status, allowing a maintainer to investigate the resource scheduling bug directly.
+TITLE: [Core] Task waiting to start due to insufficient resources even though resources are present and detected
+### What happened + What you expected to happen
+
+Our OSS library launches Ray tasks on a cluster on behalf of our users. One user (@dcavadia) reported (https://github.com/run-house/runhouse/issues/9#issuecomment-1447244742) that the task is failing due to a Ray error, and shared the following stack traces and Ray status:
+
+```
+INFO | 2023-02-27 22:59:07,628 | Reloaded module langchain.llms.self_
+
+------------------------------------------------------------
+ray-project/ray#20634  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear symptom, reproduction script, and version, so a maintainer can start investigating the temporary directory collision.
+TITLE: [Bug] Cannot start cluster if other user is already running one
+### Search before asking
+
+- [X] I searched the [issues](https://github.com/ray-project/ray/issues) and found no similar issues.
+
+
+### Ray Component
+
+Ray Clusters
+
+### What happened + What you expected to happen
+
+I tired to start a cluster via `ray up cluster.yaml` on a multi-user system. However, I receive the error that ray cannot create the temporary directory `/tmp/ray_current_cluster`, as this
+
+------------------------------------------------------------
+ray-project/ray#22509  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear symptom, suspected cause, version details, and a workaround, which is enough for a maintainer to start investigating.
+TITLE: [Bug] Dashboard hangs computer in Windows 11
+### Search before asking
+
+- [X] I searched the [issues](https://github.com/ray-project/ray/issues) and found no similar issues.
+
+
+### Ray Component
+
+RLlib, Dashboard
+
+### What happened + What you expected to happen
+
+When dashboard is enabled the computer hangs randomly and there is high memory load, even when the dashboard is not opened in the browser.
+
+I suspect that the problem is caused by re
+
+------------------------------------------------------------
+ray-project/ray#14305  GT=needs_info  PRED=actionable
+reason: The issue provides a clear symptom, environment details (Python version, Ray versions), and logs, so a maintainer can investigate the broken pipe error without needing more information.
+TITLE: Ray printing "(raylet) cut: write error: Broken pipe" constantly
+Hi!
+
+When using ray, I constantly get this message from raylet (every 1-2 secs it is printed):
+
+```
+(raylet) cut: write error: Broken pipe
+```
+
+This is the output of raylet.out (the warning part is repeated all over again)
+
+```
+[2021-02-24 13:49:00,424 I 29643 29643] io_service_pool.cc:36: IOServicePool is running with 1 io_service.
+[2021-02-24 13:49:00,432 I 29643 29643] store_runner.
+
+------------------------------------------------------------
+ray-project/ray#11247  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear error trace, Ray version, and a reproduction script link, so a maintainer can start investigating.
+TITLE: [rllib] torch.cuda.is_available() issue 
+<!--Please include [tune], [rllib], [autoscaler] etc. in the issue title if relevant-->
+
+### What is the problem?
+
+Ray version: 1.0
+
+I've seen the following error during PBT trainings using pyTorch on GPUs. It seems it only happened after perturbations. The trails kept training after the errors, but I'm not sure if the clones were performed successfully.  
+
+```
+2020-10-07 01:52:54,579	ERR
+
+------------------------------------------------------------
+ray-project/ray#13537  GT=needs_info  PRED=actionable
+reason: The bug is clearly described with a minimal reproduction config and expected vs actual behavior, so a maintainer can start investigating the randint sampling logic.
+TITLE: [tune] tune.randint(1, 2) search space return 0 on a trial
+I have a config (search space) like `config={..., 'num_layers': tune.randint(1, 2), ...}`, and on one of the trials `num_layers` returned `0`, where instead it should just return `1`. My setup is as below:
+
+```
+config={'seed': 0, 'data_path': 'path/to/data', 'num_epoch': 100, 'loss_fn': loss_fn, 'device': device, 
+	'sequence_len': tune.randint(20, 100), 'context': tune.randint(3, 15), 'batch_s
+
+------------------------------------------------------------
+ray-project/ray#13256  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear reproduction command, error traceback, and a suspected cause, so a maintainer can start investigating.
+TITLE: [tune] checkpoint_at_end fails to sync final checkpoint for a cluster
+Ray version: 1.1.0
+OS version: Ubuntu 20.04
+
+Running:
+
+`
+rllib train --run=PPO --env=MountainCarContinuous-v0 --config='{"framework": "torch"}' --stop='{"timesteps_total": 10000}' --checkpoint-at-end --ray-address=auto
+`
+
+on a cluster fails to sync down any checkpoints, and before terminating reports:
+
+```
+2021-01-07 06:03:17,786	ERROR syncer.py:190 -- Sync execution failed.
+Traceback
+
+------------------------------------------------------------
+ray-project/ray#62384  GT=needs_info  PRED=actionable
+reason: The issue clearly identifies a specific code line causing the problem, explains the expected vs actual behavior with concrete examples, and provides the PR reference, so a maintainer can start investigating and fixing it.
+TITLE: [RLlib] EMAStats clearing current value after reduce.
+### What happened + What you expected to happen
+
+With the new implementation of the `MetricsLogger` in 2.53, many of my custom metrics have started behaving much more randomly. After reading some change logs and looking at the new migration guide for the metrics logger, this appears to be expected: "Many metrics look more noisy after upgrading to 2.52".
+
+Specifically, the new `EMAStats` class is e
+
+------------------------------------------------------------
+ray-project/ray#33047  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear error message, reproduction script, and environment details, making it possible for a maintainer to start investigating the path escaping issue.
+TITLE: Windows python can not open file default_worker.py path with space
+### What happened + What you expected to happen
+
+The following error occurred:
+```
+(raylet) C:\Users\Magnus Mueller\AppData\Local\Programs\Python\Python310\python.exe: can't open file 'C:\\Users\\Magnus\\ Mueller\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\ray\\_private\\workers\\default_worker.py': [Errno 2] No such file or directory
+````
+I expected tune to run through
+
+------------------------------------------------------------
+ray-project/ray#13182  GT=needs_info  PRED=actionable
+reason: The bug report provides a clear performance regression with and without the flag, including version, environment, and reproducible timing data, so a maintainer can start investigating.
+TITLE: [board] `--dashboard-host='0.0.0.0'` will slow down ray perf
+Ray: 1.1.0
+Python: 3.7.6
+CentOS 7
+
+I'm testing ActorPool perf on a 16c32G node.
+There's A significant difference in performance when I set or not set `--dashboard-host` parameter.
+
+With `--dashboard-host='0.0.0.0'`:
+```
+[test_loop-0]: Exec Time=3.1s
+[test_loop-1]: Exec Time=3.2s
+[test_loop-2]: Exec Time=3.1s
+[test_loop-3]: Exec Time=3.2s
+[test_loop-4]: Exec Time=3.0s
+[test_loop-5]: E
+
+------------------------------------------------------------
+ray-project/ray#22859  GT=needs_info  PRED=actionable
+reason: The bug report clearly describes the issue, expected behavior, reproduction steps, and environment details, so a maintainer can start investigating.
+TITLE: [Bug] problem with running ray with WSL in powershell
+### Search before asking
+
+- [x] I searched the [issues](https://github.com/ray-project/ray/issues) and found no similar issues.
+
+
+### Ray Component
+
+Ray Core
+
+### What happened + What you expected to happen
+
+Hi
+I have an amazing problem with running the ray in WSL
+in powershell and cmd:
+when input: (1)
+wsl
+(then:) 
+ray start --head
+evrything is OK and 12 process was running
+
+but when inpu
+
+------------------------------------------------------------
+ray-project/ray#19279  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear reproduction script, expected vs actual behavior, and a gdb backtrace, so a maintainer can start investigating.
+TITLE: [Bug] Ray 1.7.0 causes Segmentation Fault in tensorflow after import
+### Search before asking
+
+- [X] I searched the [issues](https://github.com/ray-project/ray/issues) and found no similar issues.
+
+
+### Ray Component
+
+Ray Core
+
+### What happened + What you expected to happen
+
+Following code snippet 
+```python
+import ray
+import tensorflow as tf
+```
+causes `Python memory allocator called without holding the GIL` some TF functions. 
+
+Opposite import order  fork
+
+------------------------------------------------------------
+kubernetes/kubernetes#83929  GT=needs_info  PRED=actionable
+reason: The bug report includes environment details, logs showing unexpected EOF errors, and a clear reproduction scenario (HA cluster with three controlplane nodes), so a maintainer can start investigating.
+TITLE: HA cluster by kubeadm 1.16.0: controller manager restart exceptionally
+<!-- Please use this template while reporting a bug and provide as much info as possible. Not doing so may result in your bug not being addressed in a timely manner. Thanks!
+
+If the matter is security related, please disclose it privately via https://kubernetes.io/security/
+-->
+**What happened**:
+Overnight, a controller manager pod in HA cluster with three controlplane nodes had restarted onc
+
+------------------------------------------------------------
+kubernetes/kubernetes#105439  GT=needs_info  PRED=actionable
+reason: The issue clearly identifies a documentation contradiction and points to specific locations, so a maintainer can start fixing the text.
+TITLE: kube-proxy: iptables is the best-available proxy, while ipvs has advantages over iptables.
+https://github.com/kubernetes/kubernetes/blob/master/pkg/proxy/ipvs/README.md#ipvs-vs-iptables stipulates, that IPVS is better than IPTABLES. This is reiterated at https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies.
+
+
+>$ kube-proxy --help
+>…
+>      --proxy-mode ProxyMode                         Which proxy mode to use: 'userspace' (older) or 'ipta
+
+------------------------------------------------------------
+kubernetes/kubernetes#102479  GT=needs_info  PRED=actionable
+reason: The bug report provides a clear symptom, relevant logs, code reference, and environment details, allowing a maintainer to investigate the issue directly.
+TITLE: [Node Lifecycle Controller] kube-controller-manager's log keep showing "Node <node-name> no longer present in nodeLister!"
+<!-- Please use this template while reporting a bug and provide as much info as possible. Not doing so may result in your bug not being addressed in a timely manner. Thanks!
+
+If the matter is security related, please disclose it privately via https://kubernetes.io/security/
+-->
+
+
+#### What happened:
+
+I'm using the Kubernetes version 1.19 on AWS EKS. I found out after I scale-in the node fr
+
+------------------------------------------------------------
+kubernetes/kubernetes#122632  GT=needs_info  PRED=actionable
+reason: The issue clearly describes a confusing CRI-O error during kubelet startup despite using containerd, with logs and environment details provided, so a maintainer can investigate the misleading error message or registration logic.
+TITLE: confusing CRI-O error from cadvisor for nodes that use containerd
+### What happened?
+
+After a fresh installation of CentOS Stream 9 with Kubernetes, I am encountering a registration failure for the CRI-O container factory. The error message indicates a problem with connecting to the CRI-O socket: Get "http://%2Fvar%2Frun%2Fcrio%2Fcrio.sock/info": dial unix /var/run/crio/crio.sock: connect: no such file or directory. Despite not having CRI-O installed and using C
+
+------------------------------------------------------------
+kubernetes/kubernetes#140309  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear scenario, expected behavior, reproduction steps, and specific code references, allowing a maintainer to start investigating.
+TITLE: When a node restarts, only the first init container is executed.
+### What happened?
+
+Our pod has two init containers. After the node restarted, the first init container ran again, but the second init container did not execute, and the main container started running.
+The reason is that when the power is cut off, all init containers have been successfully executed, the main container has been created, but it is not running and remains in the create state.
+```
+[ro
+
+------------------------------------------------------------
+kubernetes/kubernetes#105680  GT=needs_info  PRED=actionable
+reason: The issue provides a clear reproduction scenario (pthread_create with priority > 0 as non-root with SYS_NICE capability), expected behavior, and environment details, so a maintainer can investigate the capability handling.
+TITLE: pthread_create EPERM error with SYS_NICE capability added
+### What happened?
+
+Have SYS_NICE capability and privileged: true added to pod. Running C app that calls pthread_create() with a thread priority > 0 fails as non root user. Error is EPERM (https://github.com/kubernetes/kubernetes/issues/84069)
+
+### What did you expect to happen?
+
+With SYS_NICE capability and privileged: true, expected non root user to be able to create threads without error.
+
+### 
+
+------------------------------------------------------------
+kubernetes/kubernetes#126376  GT=needs_info  PRED=actionable
+reason: The issue provides a clear reproduction case with YAML and commands, expected behavior, and environment details, so a maintainer can start investigating.
+TITLE: ephemeral-storage used over requested
+### What happened?
+
+ephemeral-storage-pod.yaml
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ephemeral-storage-pod
+spec:
+  containers:
+  - name: my-container
+    image: registry.cn-hangzhou.aliyuncs.com/hxpdocker/busybox:1.33.1
+    image: registry.cn-hangzhou.aliyuncs.com/hxpdocker/busybox:1.33.1
+    command:
+    - sleep
+    - inf
+    resources:
+      requests:
+        ephemeral
+
+------------------------------------------------------------
+kubernetes/kubernetes#108760  GT=needs_info  PRED=actionable
+reason: The issue provides a clear description of the discrepancy between cgroup memory usage and kernel OOM-killer logs, with logs and a Prometheus screenshot, so a maintainer can investigate the root cause.
+TITLE: about   kernel  oom-killer  and cgroup oom
+I limit the memory to 4G, the pod are frequently kernel  oom-killer,I got this information from messages logs
+```
+Mar 17 09:16:34 G002-01 kernel: java invoked oom-killer: gfp_mask=0xd0, order=0, oom_score_adj=-998
+Mar 17 09:16:34 G002-01 kernel: java cpuset=2f91ac556c8fdd858ec903d465d3d8120bb2f4c41c74c8fa136b51069e1b7d69 mems_allowed=0
+Mar 17 09:16:34 G002-01 kernel: CPU: 10 PID: 29695 Comm: j
+
+------------------------------------------------------------
+kubernetes/kubernetes#124127  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear reproduction path, specific feature gate, Kubernetes version, and error logs, so a maintainer can start investigating.
+TITLE: kubelet stuck in WaitForAttachAndMount and can not start container，with using feature NewVolumeManagerReconstruction
+### What happened?
+
+My pod's container exit and wait for restart. But kubelet also restart, can not start container, and the log show below error loop.
+`E0323 03:30:04.285195    6291 pod_workers.go:1301] "Error syncing pod, skipping" err="unmounted volumes=[datadir], unattached volumes=[], failed to process volumes=[]: context deadline exceeded" pod="manager/secretstore-0" podUID="009ed499-06a4
+
+------------------------------------------------------------
+kubernetes/kubernetes#112300  GT=needs_info  PRED=actionable
+reason: The issue provides a clear bug description, reproduction videos, and version details, allowing a maintainer to investigate the behavior difference between 1.23 and 1.24.
+TITLE: Socket not always closing when Pod terminated (reproduce on 1.23, but not on 1.24)
+### What happened?
+
+After upgrading from Kubernetes 1.22.6 to 1.23.8 (AKS), I've noticed abnormal behavior where application connected to Pod (ClusterIP) doesn't always see socket closing immediately when Pod is terminated (Redis in this case).
+This was seen for traffic within cluster.
+
+I have recorded simple videos trying to isolate the issue as much as possible, here using Microk8s on my la
+
+------------------------------------------------------------
+kubernetes/kubernetes#104213  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear reproduction path, expected behavior, and environment details, so a maintainer can start investigating the scheduling behavior.
+TITLE: Pod Anti-Affinity scheduling fails when scheduling multiple pods concurrently
+<!-- Please use this template while reporting a bug and provide as much info as possible. Not doing so may result in your bug not being addressed in a timely manner. Thanks!
+
+If the matter is security related, please disclose it privately via https://kubernetes.io/security/
+-->
+
+
+#### What happened: I have a batch of jobs to run in parallel and I want the job pods to each run on their own no
+
+------------------------------------------------------------
+kubernetes/kubernetes#127948  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear reproduction path, error logs, and a specific code location, so a maintainer can start investigating the attempt calculation logic.
+TITLE: PodSandbox cannot be created if the time in the server is changed by incident
+### What happened?
+
+Recently the CMOS battery is faulty, we did a change and rebooted the node. After rebooting, we found almost of pods cannot be created by kubelet + containerd.
+
+The timeline is like this
+1. **_time:  Sep  26  19:55:45 -07 2024_**. We have a pod created at **_2024-09-05T14:20:50.537022918-07:00_**
+  ```
+ aff8aea34f502       4 weeks ago         Ready            x-generic22-k
+
+------------------------------------------------------------
+kubernetes/kubernetes#127977  GT=needs_info  PRED=actionable
+reason: The issue clearly describes a bug where CRs are accessible in a non-existent namespace, with reproduction steps and environment details provided.
+TITLE: namespace not exists, but can get the cr resource in this namespace
+### What happened?
+
+namespace not exists, but can get the cr resource
+```
+k get mysqlbackup -A
+NAMESPACE   NAME                  AGE
+m1          backup-ms-3-1229      285d
+m1          ddddddddddd           285d
+m1          master-slave-1-1229   285d
+```
+ns m1 no exists
+
+```
+ k get ns|grep m1
+```
+
+get backup-ms-3-1229 in m1
+```
+k get  mysqlbackup backup-ms-3-1229 -n m1
+NAME        
+
+------------------------------------------------------------
+kubernetes/kubernetes#106691  GT=needs_info  PRED=actionable
+reason: The issue provides a clear symptom, reproduction steps, and expected behavior, so a maintainer can start investigating.
+TITLE: Kubernetes node healthcheck issue (Kubelet is unable to read logs from pods)
+### What happened?
+
+Kubelet is running on a worker node, an issue occurs which makes kubelet unable to read logs from pods which can be seen in any of the kube-system pods logs,
+
+Log output in kube-system pod:
+
+`Warning ContainerGCFailed <invalid> (x1266 over 21h) kubelet failed to read podLogsRootDirectory "/var/log/pods": open /var/log/pods: input/output error`
+
+If we describe the node i
+
+------------------------------------------------------------
+kubernetes/kubernetes#117492  GT=needs_info  PRED=actionable
+reason: The feature request clearly describes the desired behavior (drain tries each pod exactly once) with concrete use cases, so a maintainer can start implementing it.
+TITLE: kubectl drain --once
+I want `drain` to try each pod exactly once.
+
+Examples:
+- allow to control drain from outside of kubectl by having an external timer that for example restarts drain every x minutes
+- allow evicting all pods once when a node needs to be shutdown immediately
+- allow unit-testing what drain does by running it once and then testing the cluster state
+
+
+------------------------------------------------------------
+kubernetes/kubernetes#90298  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear error message, environment version, and a specific root cause with code references, making it actionable for a maintainer to investigate.
+TITLE: time-shifting cause kubelet failed to create container
+<!-- Please use this template while reporting a bug and provide as much info as possible. Not doing so may result in your bug not being addressed in a timely manner. Thanks!
+
+If the matter is security related, please disclose it privately via https://kubernetes.io/security/
+-->
+
+
+**What happened**:   
+
+time-shifting cause  container created in the feature.
+when time shift back to now a da
+
+------------------------------------------------------------
+kubernetes/kubernetes#128910  GT=needs_info  PRED=actionable
+reason: The issue describes a specific bug with reproduction steps and observed error, and a maintainer can investigate the node authorizer graph update delay.
+TITLE: node authorizer may have a delay in updating the graph
+### What happened?
+
+In k8s 1.29 cluster, I created 100 pods, each of which mounted 50 secrets. Then I deleted all the pods and created 100 pods again, repeating this process. I noticed that there were `warning` events about `failed to sync secret cache: timed out waiting for the condition`. After checking the apiserver logs, I found that the response code of corresponding request was 403 meaning u
+
+------------------------------------------------------------
+kubernetes/kubernetes#119580  GT=needs_info  PRED=actionable
+reason: The issue provides a clear description of the problem, reproduction steps, environment details, and expected behavior, so a maintainer can start investigating.
+TITLE: Terraform Plugins stored in Persistent Volume are loaded into pod memory during execution
+### What happened?
+Tested this issue on Google Kubernetes Engine and minikube setup.
+In **Google Kubernetes Engine(GKE)**
+
+1. Executing terraform init, terraform plan, terraform apply, terraform destroy commands in kubernetes pod. 
+2. Cache directory is created in Persistent Volume for storing the terraform plugins.
+3. Plugins/Binaries downloaded during terraform execution are stored in Pers
+
+------------------------------------------------------------
+kubernetes/kubernetes#133341  GT=needs_info  PRED=actionable
+reason: The bug report provides a clear symptom, expected behavior, reproduction steps, and version details, so a maintainer can start investigating.
+TITLE: Service showing terminating pod in endpoints in K8s versions v1.31.9
+### What happened?
+
+Hi All,
+
+  We have 2 versions running in our production its 
+v1.30.9 & v1.31.9
+
+We observe that without any traffic when we terminate a pod the pod stays in svc endpoints in kc describe in 1.31.9 whereas in 1.30.9 the same is removed. Please let us know if this is expected or its a bug ?.
+
+rgds
+Nandhan 
+
+### What did you expect to happen?
+
+When pod moved to terminating state th
+
+------------------------------------------------------------
+kubernetes/kubernetes#111157  GT=needs_info  PRED=actionable
+reason: The issue provides a clear symptom (stale cAdvisor metrics), reproduction steps, environment details, and a suspected cause, so a maintainer can start investigating.
+TITLE: Kubelet's cAdvisor endpoint serving stale metrics?
+### What happened?
+
+We are looking at migrating to the kubelet provided cAdvisor for gathering container/pod metrics.
+
+We have Prometheus configured to scrape the kubelet's endpoint using a standard configuration.
+
+When comparing metrics from the current exporter (metrics-server-exporter) to kubelet's cAdvisor we noticed that there was a discrepancy between the two. Digging further it looks 
+
+------------------------------------------------------------
+kubernetes/kubernetes#95551  GT=needs_info  PRED=actionable
+reason: The error is clear (PodSecurityPolicy API not found in Kubernetes 1.19) and the fix is to remove or update the PSP resource, which a maintainer can do directly.
+TITLE: api error
+在尝试安装1.19版本的kuberneters时，遇到了一些问题。主要是在安装cni插件flannel时，提示error: unable to recognize "kube-flannel.yml": no matches for policy/, Kind=PodSecurityPolicy.下方是我的编排文件
+
+``` 
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+name: psp.flannel.unprivileged
+annotations:
+seccomp.security.alpha.kubernetes.io/allowedProfileNames: docker/default
+seccomp.security.alpha.kubernetes.io/defaultProf
+
+------------------------------------------------------------
+kubernetes/kubernetes#107906  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear reproduction path, expected behavior, error logs, and environment details, so a maintainer can start investigating.
+TITLE: Exclusive CPU used by init container returns to defaultCPUSet pool causing kubelet go into reboot loop
+### What happened?
+
+When init container does its job it's removed and CPU assigned to it via cpuset returns to the defaultCPUSet pool even though this CPU is in cpuset used by another container.  Because of that kubelet seeing drift between **defaultCPUSet** and **exclusive CPUs** assigned to running containers fails to start.
+
+### What did you expect to happen?
+
+* CPU used by init container
+
+------------------------------------------------------------
+gradio-app/gradio#5041  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear reproduction code, error traceback, and environment details, so a maintainer can start investigating the issue.
+TITLE: An error occurred while updating the DataFrame
+### Describe the bug
+
+When I try to update DataFrame with number change, fastapi has an error.
+The exception below:
+```sh
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/******/miniconda3/envs/resume/lib/python3.10/site-packages/fastapi/encoders.py", line 230, in jsonable_encoder
+    data = dict(obj)
+ValueError: dictionary update sequence element #0 
+
+------------------------------------------------------------
+gradio-app/gradio#5086  GT=needs_info  PRED=actionable
+reason: The error is clearly reproduced with a full traceback and environment details, showing a version mismatch between fastapi and typing_extensions that a maintainer can investigate.
+TITLE: Cannot import name 'deprecated' from 'typing_extensions" on import gradio
+### Describe the bug
+
+Import of gradio results in: ImportError: cannot import name 'deprecated' from 'typing_extensions'
+
+### Have you searched existing issues?  🔎
+
+- [X] I have searched and found no existing issues
+
+### Reproduction
+
+run ` import gradio as gr` on system with configuration below.
+
+### Screenshot
+
+_No response_
+
+### Logs
+
+```shell
+---------------------------------------------------
+
+------------------------------------------------------------
+gradio-app/gradio#6209  GT=needs_info  PRED=actionable
+reason: The feature request clearly describes the problem (Model3D not updating on camera_position changes) and proposes two concrete solutions, so a maintainer can start working on it.
+TITLE: Model3D will not update until the value is changed
+- [x] I have searched to see if a similar issue already exists.
+
+
+**Is your feature request related to a problem? Please describe.**  
+I wanna use slider to change the camera's position and hope the model3D component will change directly. However, the component is still untill I click the “undo" button. I found that the model3D component will update the display only if the value is changed.  S
+
+------------------------------------------------------------
+gradio-app/gradio#10309  GT=needs_info  PRED=actionable
+reason: The bug is clearly described with a minimal reproduction script, expected vs. actual behavior, and version info, so a maintainer can start investigating.
+TITLE: Unsustained functionality of event 'show_progress' 
+### Describe the bug
+
+In textbox.submit(), when I set show_progress='hidden' or 'minimal' to hide progressing animation (namely the spinner and time info), it works at the first input, but fail after that. This case is observed with other downstream gradio components such as TextArea, Chatbot, etc.
+
+### Have you searched existing issues?  🔎
+
+- [X] I have searched and found no existing issues
+
+### 
+
+------------------------------------------------------------
+gradio-app/gradio#11365  GT=needs_info  PRED=actionable
+reason: The bug is clearly described with a minimal reproduction snippet and version, so a maintainer can start investigating the sidebar width handling.
+TITLE: Main site wrapping issues with sidebar width in css format
+### Describe the bug
+
+The component of the main website wraps correctly when sidebar expanded if I assigned integer to sidebar width such as width=500 but it doesn't wrap properly when I set something like width="50%"
+
+### Have you searched existing issues?  🔎
+
+- [x] I have searched and found no existing issues
+
+### Reproduction
+
+```python
+with gr.Sidebar(open=False, width='50%', position='left'):
+
+------------------------------------------------------------
+gradio-app/gradio#7009  GT=needs_info  PRED=actionable
+reason: The feature request clearly describes the desired behavior (allow gr.File with type='binary' to store files in memory only) and the motivation, so a maintainer can start implementing it.
+TITLE: Allow gr.File with type="binary" to completely omit saving a file to hard drive/store directly to memory
+Currently gr.File still creates an uploaded file in temporary folder. My case is due to security reasons I would like to store the file in memory only, even on rented environments (where mounting file systems is not possible).
+
+
+------------------------------------------------------------
+gradio-app/gradio#4912  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear reproduction code, the exact error message, and system info (Gradio version, Python version), so a maintainer can start investigating the compatibility issue with Pydantic v2.
+TITLE: ImportError: cannot import name 'MultiHostDsn' from 'pydantic.networks' #6578
+### Describe the bug
+
+I am using gradio to dispaly my NLP model. On Friday 7/7 it was working perfectly, but after the new release (gradio v3.36.1 and pydantic v2.02 or any other I use) whenever I run any code with the gradio import I get the following error: "[/usr/local/lib/python3.10/dist-packages/fastapi/_compat.py](https://localhost:8080/#) in
+295 UndefinedType as UndefinedType, # noqa: F401
+
+------------------------------------------------------------
+gradio-app/gradio#8111  GT=needs_info  PRED=actionable
+reason: The feature request clearly describes the problem and desired behavior: add an option to disable WebSockets.
+TITLE: Add ability to disable Web sockets
+- [x] I have searched to see if a similar issue already exists.
+
+
+**Is your feature request related to a problem? Please describe.**  
+Web sockets don't work with many PAAS solutions that do not support sticky sessions.
+
+**Describe the solution you'd like**  
+Provide an ability to explicitly disable web sockets
+
+
+------------------------------------------------------------
+gradio-app/gradio#10148  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear reproduction code, error logs showing the daemonic process assertion, and version info, so a maintainer can start investigating the interaction between @spaces.GPU and model loading.
+TITLE: @spaces.GPU will not load model
+### Describe the bug
+
+After the 5.8.0 release, I can no longer load a model using gradio with zero gpu.
+
+I have isolated the problem to likely be caused by the @spaces.GPU decorator, as the model will load without the decorator, although running on CPU.
+
+### Have you searched existing issues?  🔎
+
+- [X] I have searched and found no existing issues
+
+### Reproduction
+
+@spaces.GPU(duration
+
+------------------------------------------------------------
+gradio-app/gradio#4297  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear error message, reproduction code, and system info, so a maintainer can investigate the missing Blocks attribute.
+TITLE: Module "gradio" has no attribute "Blocks"
+### Describe the bug
+
+Trying to run the latest version of gradio, and code that I had used previously no longer works.
+
+I'm instantiating my gradio loop like so:
+
+with gr.Blocks(theme=gr.themes.Default(text_size="lg")) as demo:
+
+Which used to work. Following advice on other threads, I've reinstalled both my gradio and my gradio_client to no avail.
+Also restarted my computer, which has fix
+
+------------------------------------------------------------
+gradio-app/gradio#2056  GT=needs_info  PRED=actionable
+reason: The feature request clearly describes the problem (preview video too large for portrait videos) and the desired behavior (constant video component size), which a maintainer can act on.
+TITLE: When a video (w, h=608x1080) is input, the preview video becomes too large.
+**Is your feature request related to a problem? Please describe.**  
+When a video (w, h=608x1080) is input, the preview video becomes too large.
+I have to scroll down to watch the automatically up-scaled video, and it is uncomfortable.
+
+**Describe the solution you'd like**  
+It would be nice if the size of the video component window size is constant, even if a video (height is longer than wid
+
+------------------------------------------------------------
+gradio-app/gradio#4930  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear reproduction code, expected vs actual behavior, and version, so a maintainer can start investigating.
+TITLE: The component cancels parameter is not valid in some scenarios.
+### Describe the bug
+
+When the component has two queued tasks, using cancels to cancel the task while the first task is running only cancels the last task, and the dialog is still in progress
+
+### Have you searched existing issues?  🔎
+
+- [X] I have searched and found no existing issues
+
+### Reproduction
+
+```
+with gr.Blocks() as demo:   # 绘制一个块对象，在此基础上可以使用Row、Column、Tab、Box等等布局元素
+    gr.Markdown(
+
+------------------------------------------------------------
+gradio-app/gradio#7560  GT=needs_info  PRED=actionable
+reason: The bug is clearly described with a minimal reproduction code and a screenshot showing the floating-point display issue, which a maintainer can investigate directly.
+TITLE: Gradio slider not showing static values even with step size set correctly.
+
+### Describe the bug
+
+Hi, when I use a slider with a step size of 0.1 the values shown are incorrect (instead of 0.2 it shows 0.19999996 etc). I could not find any solution to this. can someone support? Thank you
+
+with gr.Row():
+                # Sliders for adjusting model weights
+                abc_weight = gr.Slider(minimum=0.0, maximum=1.0, step=0.1, value=0.2, label="abc Weight")
+  
+
+------------------------------------------------------------
+gradio-app/gradio#3458  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear reproduction code, error message, and system info, so a maintainer can start investigating the issue.
+TITLE: The window is strange
+### Describe the bug
+
+when I start gradio ,and it showed in the google , 
+![image](https://user-images.githubusercontent.com/54131759/224919083-b098b2a1-e011-4f0e-bf18-179cc3021b86.png)
+
+
+### Is there an existing issue for this?
+
+- [X] I have searched the existing issues
+
+### Reproduction
+
+```
+import gradio as gr
+import os
+import torch
+import cv2
+from basicsr.archs.rrdbnet_arch im
+
+------------------------------------------------------------
+gradio-app/gradio#10591  GT=needs_info  PRED=actionable
+reason: The bug report includes a clear reproduction script, environment details, and a traceback showing the upload/download path mismatch, so a maintainer can start investigating.
+TITLE: GRADIO_TEMP_DIR cause Large image not render
+### Describe the bug
+
+When setting "GRADIO_TEMP_DIR" a custom path, I can upload a image to this new tmp path,but the image component can not render the image. I found that the upload path is different with the download path.
+
+### Have you searched existing issues?  🔎
+
+- [x] I have searched and found no existing issues
+
+### Reproduction
+
+```python
+import os
+import sys
+from pathlib import Path
+impo
+
+------------------------------------------------------------
+gradio-app/gradio#3940  GT=needs_info  PRED=actionable
+reason: The feature request clearly describes the desired behavior (support S3 pre-signed URLs in the video component) and includes a traceback showing the exact failure, so a maintainer can start working on it.
+TITLE: Support S3 pre-signed URL as value for video component
+- [x] I have searched to see if a similar issue already exists.
+
+
+**Is your feature request related to a problem? Please describe.**  
+I am trying to make a video stored in an s3 bucket displayed. I am returning pre-signed URL to the video file in s3. For some reason, gradio complains file not found. The exact traceback is as follows:
+```
+Traceback (most recent call last):                   
+
+------------------------------------------------------------
+ray-project/ray#59124  GT=actionable  PRED=needs_info
+reason: The request is vague about what 'custom Job name' means and how it should be implemented, lacking specific desired behavior or context.
+TITLE: [Dashboard] Difficult to track the Jobs, provide the way to give custom Job name to show and filter the jobs in the dashboard
+### What happened + What you expected to happen
+
+Difficult to track the Jobs, provide the way to give custom Job name [User provided] to show and filter the jobs in the dashboard
+
+### Versions / Dependencies
+
+ Ray
+
+### Reproduction script
+
+ .
+
+### Issue Severity
+
+None
+
+------------------------------------------------------------
+ray-project/ray#58964  GT=actionable  PRED=needs_info
+reason: The issue title says 'startup crash' but the body only contains log output with no description of the crash, reproduction steps, or environment details.
+TITLE: [Core] startup crash
+### What happened + What you expected to happen
+
+```bash
+[2025-11-25 06:29:20,048 I 89 89] (gcs_server) gcs_server.cc:897: ray_syncer_io_context Event stats:
+
+
+Global stats: 485 total (0 active)
+Queueing time: mean = 0.01ms, max = 0.54ms, min = 0.00ms, total = 4.98ms
+Execution time:  mean = 0.02ms, total = 8.96ms
+Event stats:
+	event_loop_lag_probe - 467 total (0 active), Execution time: mean = 0.0
+
+------------------------------------------------------------
+ray-project/ray#61006  GT=actionable  PRED=needs_info
+reason: The issue is a design proposal seeking discussion and feedback rather than a concrete actionable task, and it lacks specific implementation details or a clear scope for a maintainer to start working on.
+TITLE: [Ray Train] Enhance visiblity into TorchTrainer restarts
+### Description
+
+TorchTrainer has the ability to restart training jobs on faults to keep the job running for days or weeks without manual intervention. However, it lacks a better mechanism than logs to tell the user how many times it has already restarted and the reasons for those restarts. 
+
+Every train job (or if we want to generalize further, any Ray job) should have mutable metadata fields tha
+
+------------------------------------------------------------
+ray-project/ray#63037  GT=actionable  PRED=needs_info
+reason: The report lacks a clear reproduction path, exact Ray version, and configuration details, making it hard to act on without further clarification.
+TITLE: [<Ray component: Core|RLlib|etc...>] https://github.com/ray-project/ray/issues/62968
+### What happened + What you expected to happen
+
+[<Ray component: Core|RLlib|etc...>] unable to start ray with redis gcs #62968
+
+
+### Versions / Dependencies
+
+I am still facing the issue. 
+
+With:
+rediss://redis-server:port for RAY_REDIS_ADDRESS instead., getting error:
+
+(ray_init) redis_context.cc 47: Got an error in redis reply: NOPERM this user has no permission to run the info command and its s
+
+------------------------------------------------------------
+ray-project/ray#60861  GT=actionable  PRED=needs_info
+reason: The issue is truncated mid-sentence, missing the full log analysis and any version/environment details needed to reproduce the hang.
+TITLE: [Core] The Actor Task cannot be scheduled, causing the job to hang ( `ray.get` hangs)
+### What happened + What you expected to happen
+
+As a bit of background, I want to note that although this problem involves Data-juicer and Ray Data, we suspect the root cause might lie within the **Ray Core** layer. The hang occurs consistently at the `ray.get` level, and we observed that the Core Worker itself hangs as well.
+
+### Background
+- **Callee Actor**:  `RayBasicDeduplicator` operator in
+
+------------------------------------------------------------
+ray-project/ray#58411  GT=actionable  PRED=needs_info
+reason: The issue relies on screenshots for reproduction details, which are not accessible in text form, so a maintainer cannot see the actual code or error.
+TITLE: Ray run error
+### What happened + What you expected to happen
+
+<img width="290" height="234" alt="Image" src="https://github.com/user-attachments/assets/9b84534f-6bba-4796-a714-0d3c5d338df1" />
+
+<img width="846" height="80" alt="Image" src="https://github.com/user-attachments/assets/e8581d10-f7b8-49e8-8a59-0966c23391b2" />
+
+<img width="1183" height="136" alt="Image" src="https://github.com/user-attachments/asse
+
+------------------------------------------------------------
+gradio-app/gradio#11846  GT=actionable  PRED=needs_info
+reason: The issue body is a template with no actual problem, desired solution, or context described.
+TITLE: App
+- [x] #11847
+
+
+**Is your feature request related to a problem? Please describe.**  
+A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+
+**Describe the solution you'd like**  
+A clear and concise description of what you want to happen.
+
+**Additional context**  
+Add any other context or screenshots about the feature request here.
+
+
+------------------------------------------------------------
+gradio-app/gradio#11829  GT=actionable  PRED=needs_info
+reason: The reproduction references an undefined `predict` function, so a maintainer cannot run the code to reproduce the issue.
+TITLE: Font not changing in Gradio 5
+### Describe the bug
+
+I tried searching online, but the information is related to older versions and is blurry:
+
+In my root folder (the same one where I am running Gradio), I have a font called euc.ttf. I simply want to replace any existing one to avoid relying on Google fonts (not GDPR compliant). 
+However, the code is not working.
+
+Thank you
+
+### Have you searched existing issues?  🔎
+
+- [x] I ha
+
+------------------------------------------------------------
+gradio-app/gradio#12878  GT=actionable  PRED=needs_info
+reason: The request is vague about what specific features are missing or desired for image/video inputs and the video comparison slider, lacking concrete requirements or context.
+TITLE: Gradio must have these for AI future models - image and video inputs + video comparison slider
+This is the input field of future models
+
+<img width="2222" height="609" alt="Image" src="https://github.com/user-attachments/assets/617ce58d-b595-44ac-a423-5450f160f1fa" />
+
+Moreover I spent massive time to implement video slider I hope you can add this natively
+
+<img width="1197" height="1106" alt="Image" src="https://github.com/user-attachments/assets/08d21970-b7c7-4f35-b537-10e92c3ceda0" />

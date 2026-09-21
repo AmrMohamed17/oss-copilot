@@ -71,3 +71,23 @@ def mark_surfaced(conn, repo: str, number: int) -> None:
         c.execute("UPDATE issue_state SET surfaced_at = now() "
                   "WHERE repo=%s AND number=%s", (repo, number))
     conn.commit()
+
+
+# ADD to src/oss_copilot/watcher/state.py (append at the end).
+
+def recent_surfaced(conn, days: int = 7) -> list[dict]:
+    """Issues surfaced in the last `days`, most recent first. Read-only — does
+    NOT re-run the pipeline or change any flags. This is what makes the digest
+    non-disposable: closing the page no longer loses your list."""
+    with conn.cursor() as c:
+        c.execute("""
+            SELECT repo, number, readiness_verdict, readiness_reason, surfaced_at
+            FROM issue_state
+            WHERE surfaced_at IS NOT NULL
+              AND surfaced_at > now() - (%s || ' days')::interval
+            ORDER BY surfaced_at DESC
+        """, (days,))
+        rows = c.fetchall()
+    return [{"repo": r[0], "number": r[1], "verdict": r[2],
+             "reason": r[3], "surfaced_at": r[4].isoformat() if r[4] else None}
+            for r in rows]
